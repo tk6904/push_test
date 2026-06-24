@@ -3,77 +3,58 @@
 <head>
 <meta charset="UTF-8">
 <title>年次選挙 サポートフロー</title>
-<link rel="stylesheet" href="https://use.typekit.net/fhk4ttj.css">
+<link rel="stylesheet" href="https://use.typekit.net/rvz3drj.css">
 <meta name="hz:slide-selector" content=".slide">
 <meta name="hz:canvas-width" content="1400">
 <meta name="hz:canvas-height" content="900">
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; font-family: "zen-kaku-gothic-new", sans-serif; }
-  body { font-family: "zen-kaku-gothic-new", sans-serif; }
-  .slide, .title, .eyebrow, .schedule-pill, .phase-label, .phase-sub,
-  .card-tag, .card-title, .card-desc, .code-path, .wp-eyebrow, .wp-title,
-  .wp-item, .footer { font-family: "zen-kaku-gothic-new", sans-serif; }
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: "noto-sans-cjk-jp", sans-serif; }
+  body { font-family: "noto-sans-cjk-jp", sans-serif; }
+  .slide, .title, .schedule-pill, .phase-label,
+  .card-tag, .card-title, .card-desc, .code-path, .wp-title,
+  .wp-item { font-family: "noto-sans-cjk-jp", sans-serif; }
   .code-path { font-family: "SFMono-Regular", Menlo, monospace; }
   .slide {
     width: 1400px;
     height: 900px;
-    background: #FBFAF7;
+    background: #FFFFFF;
     position: relative;
-    padding: 48px 64px 64px;
+    padding: 56px 64px 64px;
     color: #1F2937;
     overflow: hidden;
-  }
-
-  /* Decorative accent */
-  .accent-line {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 6px;
-    background: linear-gradient(90deg, #B5A089 0%, #8BAE9E 33%, #C9856E 66%, #8C7DB0 100%);
   }
 
   /* Header */
   .header {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-between;
-    margin-bottom: 28px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid #E5E1D8;
-  }
-  .title-block { display: flex; flex-direction: column; gap: 6px; }
-  .eyebrow {
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.18em;
-    color: #8C7B66;
-    text-transform: uppercase;
+    margin-bottom: 32px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #E5E7EB;
   }
   .title {
-    font-size: 36px;
+    font-size: 30px;
     font-weight: 700;
     color: #1F2937;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
   }
   .schedule-pill {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: #FFFFFF;
-    border: 1px solid #E5E1D8;
-    padding: 10px 18px;
+    background: #F9FAFB;
+    border: 1px solid #E5E7EB;
+    padding: 8px 16px;
     border-radius: 999px;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
-    color: #4B4636;
-    box-shadow: 0 2px 6px rgba(31,41,55,0.04);
+    color: #4B5563;
   }
   .schedule-pill::before {
     content: "";
-    width: 8px;
-    height: 8px;
+    width: 7px;
+    height: 7px;
     border-radius: 50%;
     background: #C9856E;
   }
@@ -82,8 +63,8 @@
   .phases {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 26px;
-    margin-bottom: 22px;
+    gap: 28px;
+    margin-bottom: 28px;
   }
   .phase {
     display: flex;
@@ -94,7 +75,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
   }
   .phase-number {
     width: 32px;
@@ -108,26 +89,17 @@
     color: #FFFFFF;
   }
   .phase-label {
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 700;
     letter-spacing: 0.04em;
-  }
-  .phase-sub {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    color: #8C7B66;
-    text-transform: uppercase;
-    margin-left: auto;
   }
 
   /* Cards */
   .card {
     background: #FFFFFF;
-    border-radius: 14px;
+    border-radius: 12px;
     padding: 14px 18px;
-    border: 1px solid #ECE7DC;
-    box-shadow: 0 2px 6px rgba(31,41,55,0.04);
+    border: 1px solid #E5E7EB;
     position: relative;
   }
   .card-tag {
@@ -149,26 +121,22 @@
   .card-desc {
     font-size: 13px;
     line-height: 1.55;
-    color: #6B6452;
+    color: #6B7280;
   }
 
   /* Phase 1 - Sand */
   .phase-1 .phase-number { background: #B5A089; }
   .phase-1 .phase-label { color: #6B5C49; }
-  .phase-1 .card {
-    border-left: 4px solid #B5A089;
-  }
+  .phase-1 .card { border-left: 4px solid #B5A089; }
   .phase-1 .card-tag { background: #F4EFE6; color: #6B5C49; }
 
   /* Phase 2 - Sage */
   .phase-2 .phase-number { background: #8BAE9E; }
   .phase-2 .phase-label { color: #4F7565; }
-  .phase-2 .card {
-    border-left: 4px solid #8BAE9E;
-  }
+  .phase-2 .card { border-left: 4px solid #8BAE9E; }
   .phase-2 .card-tag { background: #E8F0EC; color: #4F7565; }
 
-  /* Phase 3 - Terracotta + Lavender */
+  /* Phase 3 - Terracotta + Sky + Lavender */
   .phase-3 .phase-number { background: #C9856E; }
   .phase-3 .phase-label { color: #8B4F38; }
   .phase-3 .card.terracotta { border-left: 4px solid #C9856E; }
@@ -182,49 +150,28 @@
   .code-path {
     font-family: "SFMono-Regular", Menlo, monospace;
     font-size: 12px;
-    background: #F5F1E8;
-    color: #6B5C49;
+    background: #F3F4F6;
+    color: #4B5563;
     padding: 4px 8px;
     border-radius: 4px;
     display: inline-block;
     margin-top: 4px;
   }
 
-  /* Arrows between cards in a phase */
+  /* Arrows */
   .arrow-down {
     align-self: center;
-    color: #C7BFAD;
+    color: #D1D5DB;
     font-size: 16px;
     line-height: 1;
   }
 
-  /* Inter-phase arrow indicator */
-  .phase-arrow {
-    position: absolute;
-    top: 50%;
-    right: -22px;
-    transform: translateY(-50%);
-    width: 28px;
-    height: 28px;
-    background: #FFFFFF;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 6px rgba(31,41,55,0.08);
-    color: #8C7B66;
-    font-size: 13px;
-    font-weight: 700;
-    z-index: 2;
-  }
-
   /* WordPress section */
   .wp-section {
-    background: linear-gradient(135deg, #F0F5EE 0%, #E8F0EC 100%);
-    border-radius: 18px;
+    background: #F9FAFB;
+    border-radius: 14px;
     padding: 22px 28px;
-    border: 1px solid #D8E5DB;
-    position: relative;
+    border: 1px solid #E5E7EB;
   }
   .wp-header {
     display: flex;
@@ -232,7 +179,7 @@
     gap: 14px;
     margin-bottom: 16px;
     padding-bottom: 12px;
-    border-bottom: 1px dashed #B5CCBE;
+    border-bottom: 1px solid #E5E7EB;
   }
   .wp-icon {
     width: 36px;
@@ -242,23 +189,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #C9DBCE;
+    border: 1px solid #E5E7EB;
   }
   .wp-icon svg { width: 20px; height: 20px; }
   .wp-title-block { flex: 1; }
-  .wp-eyebrow {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    color: #4F7565;
-    text-transform: uppercase;
-  }
   .wp-title {
     font-size: 18px;
     font-weight: 700;
-    color: #2E4A3B;
+    color: #1F2937;
     letter-spacing: 0.02em;
-    margin-top: 2px;
   }
   .wp-grid {
     display: grid;
@@ -270,8 +209,8 @@
     align-items: flex-start;
     gap: 10px;
     font-size: 13px;
-    color: #3D5447;
-    line-height: 1.5;
+    color: #374151;
+    line-height: 1.55;
   }
   .wp-bullet {
     width: 6px;
@@ -281,20 +220,14 @@
     margin-top: 7px;
     flex-shrink: 0;
   }
-
-  /* Footer removed for cleaner layout */
 </style>
 </head>
 <body>
 <div class="slide" data-canvas-width="1400" data-canvas-height="900">
-  <div class="accent-line"></div>
 
   <!-- Header -->
   <div class="header">
-    <div class="title-block">
-      <span class="eyebrow">ANNUAL ELECTION SUPPORT FLOW</span>
-      <span class="title">年次選挙 サポートフロー</span>
-    </div>
+    <span class="title">年次選挙 サポートフロー</span>
     <div class="schedule-pill">毎年 2月 〜 3月 実施</div>
   </div>
 
@@ -306,7 +239,6 @@
       <div class="phase-header">
         <div class="phase-number">01</div>
         <div class="phase-label">準備フェーズ</div>
-        <div class="phase-sub">PREPARE</div>
       </div>
       <div class="card">
         <span class="card-tag">GG ─ 選挙管理</span>
@@ -326,7 +258,6 @@
       <div class="phase-header">
         <div class="phase-number">02</div>
         <div class="phase-label">選挙フェーズ</div>
-        <div class="phase-sub">ELECT</div>
       </div>
       <div class="card">
         <span class="card-tag">推薦期間</span>
@@ -352,23 +283,22 @@
       <div class="phase-header">
         <div class="phase-number">03</div>
         <div class="phase-label">発表フェーズ</div>
-        <div class="phase-sub">ANNOUNCE</div>
       </div>
       <div class="card terracotta">
-        <span class="card-tag">DESIGN</span>
+        <span class="card-tag">バナー作成</span>
         <div class="card-title">新スタッフ体制のバナー作成</div>
         <div class="card-desc">公式バナーをデザイン</div>
       </div>
       <div class="arrow-down">▼</div>
       <div class="card sky">
-        <span class="card-tag">PUBLISH</span>
+        <span class="card-tag">サイト投稿</span>
         <div class="card-title">公開サイトに投稿</div>
         <div class="card-desc">告知記事を投稿</div>
         <div class="code-path">/news/20XX-admin-staff/</div>
       </div>
       <div class="arrow-down">▼</div>
       <div class="card lavender">
-        <span class="card-tag">PR TEAM</span>
+        <span class="card-tag">PRチーム</span>
         <div class="card-title">PRチームへ連絡</div>
         <div class="card-desc">バナーを各種SNSに掲載・発信</div>
       </div>
@@ -385,7 +315,6 @@
         </svg>
       </div>
       <div class="wp-title-block">
-        <div class="wp-eyebrow">FOLLOW-UP TASKS</div>
         <div class="wp-title">スタッフ体制変更に伴う WordPress 更新</div>
       </div>
     </div>
